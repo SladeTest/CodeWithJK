@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-3 gradient-text mb-3">12-Month Mastery Path</h1>
+            <p class="lead fs-4">Structured learning with milestone projects</p>
+        </div>
+
+        <!-- Phase Cards -->
+        <div class="row g-4">
+            {% for phase in course %}
+            <div class="col-lg-4">
+                <div class="card-glass p-4">
+                    <div class="text-center mb-4">
+                        <i class="bi {{ phase.icon }} fs-1 text-primary"></i>
+                    </div>
+                    <h3 class="mb-3">{{ phase.title }}</h3>
+                    <p class="text-muted">Months {{ phase.months }}</p>
+                    <ul class="list-unstyled">
+                        {% for topic in phase.topics %}
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check2-circle me-2 text-success"></i>
+                            {{ topic }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="row g-4 mt-5">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     class="img-fluid rounded-4" alt="Coding setup">
+            </div>
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     class="img-fluid rounded-4" alt="Machine learning">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1>4-Month Fast Track</h1>
+    <p class="lead">Accelerated path for quick specialization.</p>
+</div>
+
+<div class="row g-4">
+    {% for month in course %}
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5>{{ month.title }}</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    {% for topic in month.topics %}
+                    <li class="list-group-item">{{ topic }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
